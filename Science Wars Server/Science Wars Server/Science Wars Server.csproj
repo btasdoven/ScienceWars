@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2997D6BD-A86F-4253-8F0D-FB95FA7253F3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Science_Wars_Server</RootNamespace>
+    <AssemblyName>Science Wars Server</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.7.4\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.7.4\Assemblies\v4.5\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\Connector NET 6.5.4\Assemblies\v4.0\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Networker">
+      <HintPath>NetWorker\Networker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AreaEffects\AreaEffect.cs" />
+    <Compile Include="AreaEffects\FogBombAreaEffect.cs" />
+    <Compile Include="AreaEffects\NailTrapAreaEffect.cs" />
+    <Compile Include="AreaEffects\PetrolBombAreaEffect.cs" />
+    <Compile Include="AreaEffects\RadiationTowerAreaEffect.cs" />
+    <Compile Include="AreaEffects\SeedTowerAreaEffect.cs" />
+    <Compile Include="Boards\RegularBoard.cs" />
+    <Compile Include="Database\IDatabaseAccessLayer.cs" />
+    <Compile Include="Database\Models\AccountDataModel.cs" />
+    <Compile Include="Database\Models\UserDataModel.cs" />
+    <Compile Include="Database\Models\UserStatsModel.cs" />
+    <Compile Include="Database\MySQLDatabaseAccessor.cs" />
+    <Compile Include="Effects\MinionEffects\AcidOverTimeEffect.cs" />
+    <Compile Include="Effects\MinionEffects\ContagiousEffect.cs" />
+    <Compile Include="Effects\MinionEffects\ContagiousEffect_effective.cs" />
+    <Compile Include="Effects\MinionEffects\ContagiousEffect_extra.cs" />
+    <Compile Include="Effects\MinionEffects\CrazyScientistEffect.cs" />
+    <Compile Include="Effects\MinionEffects\MinionEffect.cs" />
+    <Compile Include="Effects\MinionEffects\NailTrapSlowEffect.cs" />
+    <Compile Include="Effects\MinionEffects\NitrogenBombEffect.cs" />
+    <Compile Include="Effects\MinionEffects\ProtectorEffect.cs" />
+    <Compile Include="Effects\MinionEffects\QuantumSoldierSpeedEffect.cs" />
+    <Compile Include="Effects\MinionEffects\RoboHookImmuneEffect.cs" />
+    <Compile Include="Effects\MinionEffects\TrypanophobiaEffect.cs" />
+    <Compile Include="Effects\TowerEffects\ITowerEffect.cs" />
+    <Compile Include="Effects\TowerEffects\RegularTowerEffect.cs" />
+    <Compile Include="Effects\TowerEffects\RetentiveTankTowerEffect.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameUtilities\DamageType.cs" />
+    <Compile Include="GameUtilities\MinionPosition.cs" />
+    <Compile Include="GameUtilities\DamageResistance.cs" />
+    <Compile Include="GameUtilities\PathPosition.cs" />
+    <Compile Include="GameUtilities\Damage.cs" />
+    <Compile Include="GameUtilities\ScienceType.cs" />
+    <Compile Include="GameUtilities\TowerSlots.cs" />
+    <Compile Include="Helpers\Chronos.cs" />
+    <Compile Include="Helpers\RandomNumberProvider.cs" />
+    <Compile Include="Helpers\Vector3.cs" />
+    <Compile Include="Boards\Board.cs" />
+    <Compile Include="LoginManager.cs" />
+    <Compile Include="Messages\IncomingMessages\Game\GEndGameStatisticsRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\Game\GUpgradeMinionRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\Game\GUpgradeTowerRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\Game\GCreateMinionRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\Game\GCreateTowerRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\Game\GLoadingStateResult.cs" />
+    <Compile Include="Messages\IncomingMessages\Game\GQuitGameRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\GChatMessage.cs" />
+    <Compile Include="Messages\IncomingMessages\Lobby\GReadyStateResult.cs" />
+    <Compile Include="Messages\IncomingMessages\Lobby\LCancelQueueRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\Lobby\LChatMessage.cs" />
+    <Compile Include="Messages\IncomingMessages\IncomingMessageImp.cs" />
+    <Compile Include="Messages\IncomingMessages\Lobby\LEnterQueueRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\Lobby\LUnlockNodeRequest.cs" />
+    <Compile Include="Messages\OutgoingMessages\EnterLobby.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinion_MutantEightLegged_spawn.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GChatMessage.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GEndGameStatisticsResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinion_FrankenScientist_stackChanged.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinion_Trypanophobia_addEffect.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GTower_DoseraTower_Bite.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GTower_LaserTower_untarget.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GTower_LaserTower_target.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GAddEffectOnMinionNailTrapSlow.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GAddNailTrapAreaEffect.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GAreaEffect_SeedTowerAreaEffect_createMissile.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinion_FrankenScientist_spawn.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinion_Zombie_Raise.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GTower_SeedTower_stackSeed.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GUpgradeMinionResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GUpgradeTowerResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GAddEffectOnTower.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GTower_BlackHole_teleport.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GAddAreaEffect.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinion_QuantumSoldier_teleport.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinion_RoboHook_hookToMinion.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GAddEffectOnMinion.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GCopyMinionResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GCreateMinionResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GCreateMissileInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GCreateTowerResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GCashAndIncomeInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GDestroyMinionInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GDestroyTowerInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GEnterStartCountdown.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinionHealthInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GMinionPositionInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GPaymentTimeInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GPlayerHealthInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Game\GRandomMinionTimeInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\Lobby\GLoadingStateRequest.cs" />
+    <Compile Include="Messages\OutgoingMessages\Lobby\GReadyStateRequest.cs" />
+    <Compile Include="Messages\OutgoingMessages\Lobby\GReadyStateResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Lobby\LCancelQueueResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Lobby\LChatMessage.cs" />
+    <Compile Include="Messages\OutgoingMessages\Lobby\LEnterQueueResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Lobby\LReturnQueue.cs" />
+    <Compile Include="Messages\OutgoingMessages\Lobby\LUnlockNodeResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\Login\LoginResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\OutgoingMessageImp.cs" />
+    <Compile Include="Minions\BiologyMinion.cs" />
+    <Compile Include="Minions\Biology\BioLabStudentMinion_Dangerous.cs" />
+    <Compile Include="Minions\Biology\BioLabStudentMinion_Shielded.cs" />
+    <Compile Include="Minions\Biology\BiologyStudentMinion.cs" />
+    <Compile Include="Minions\Biology\BiologyStudentMinion_Durable.cs" />
+    <Compile Include="Minions\Biology\BiologyStudentMinion_Faster.cs" />
+    <Compile Include="Minions\Biology\MutantEightLeggedMinion_WellFed.cs" />
+    <Compile Include="Minions\Biology\MutantEightLeggedSpawningMinion_WellFed.cs" />
+    <Compile Include="Minions\Biology\MutantEightLeggedMinion_Fertile.cs" />
+    <Compile Include="Minions\Biology\MutantEightLeggedSpawningMinion.cs" />
+    <Compile Include="Minions\Biology\DollyMinion.cs" />
+    <Compile Include="Minions\Biology\BioLabStudentMinion.cs" />
+    <Compile Include="Minions\Biology\DollyMinion_Lesscd.cs" />
+    <Compile Include="Minions\Biology\DollyMinion_Pack.cs" />
+    <Compile Include="Minions\Biology\MutantEightLeggedMinion.cs" />
+    <Compile Include="Minions\Biology\ImmortalStarfishChildMinion.cs" />
+    <Compile Include="Minions\Biology\ImmortalStarfishChildMinion_Durable.cs" />
+    <Compile Include="Minions\Biology\ImmortalStarfishChildMinion_Fast.cs" />
+    <Compile Include="Minions\Biology\ImmortalStarfishMinion.cs" />
+    <Compile Include="Minions\Biology\ImmortalStarfishMinion_Durable.cs" />
+    <Compile Include="Minions\Biology\ImmortalStarfishMinion_FastLoyal.cs" />
+    <Compile Include="Minions\Biology\ImmortalStarfishMinion_Loyal.cs" />
+    <Compile Include="Minions\Biology\ImmortalStarfishMinion_Strong.cs" />
+    <Compile Include="Minions\Biology\ZombieMinion.cs" />
+    <Compile Include="Minions\ChemistryMinion.cs" />
+    <Compile Include="Minions\Chemistry\ChemistryStudentMinion.cs" />
+    <Compile Include="Minions\Chemistry\ChemistryStudentMinion_Durable.cs" />
+    <Compile Include="Minions\Chemistry\ChemistryStudentMinion_Fast.cs" />
+    <Compile Include="Minions\Chemistry\ChemLabStudentMinion.cs" />
+    <Compile Include="Minions\Chemistry\FirstAidTentMinion.cs" />
+    <Compile Include="Minions\Chemistry\FoggerMinion.cs" />
+    <Compile Include="Minions\Chemistry\CrazyScientistMinion.cs" />
+    <Compile Include="Minions\Chemistry\ProtectorMinion.cs" />
+    <Compile Include="Minions\MinionNode.cs" />
+    <Compile Include="Minions\MinionStats.cs" />
+    <Compile Include="Minions\PhysicsMinion.cs" />
+    <Compile Include="Minions\Physics\MirrorSoldierIlisionMinion.cs" />
+    <Compile Include="Minions\Physics\MirrorSoldierMinion.cs" />
+    <Compile Include="Minions\Physics\PhysicsMScStudentMinion_Cheaper.cs" />
+    <Compile Include="Minions\Physics\PhysicsMScStudentMinion_Speedy.cs" />
+    <Compile Include="Minions\Physics\QuantumSoldierMinion_Fast.cs" />
+    <Compile Include="Minions\Physics\QuantumSoldierMinion_Crew.cs" />
+    <Compile Include="Minions\Physics\QuantumSoldierMinion_Jumper.cs" />
+    <Compile Include="Minions\Physics\QuantumSoldierMinion_MultiJumper.cs" />
+    <Compile Include="Minions\Physics\RoboHookMinion_3sImmune.cs" />
+    <Compile Include="Minions\Physics\RoboHookMinion_Further.cs" />
+    <Compile Include="Minions\Physics\ScrapGolemMinion_Armored.cs" />
+    <Compile Include="Minions\Physics\ScrapGolemMinion_Overheat.cs" />
+    <Compile Include="Minions\Physics\FrankenScientistMinion_LateWork.cs" />
+    <Compile Include="Minions\Physics\FrankenScientistMinion_PennyPincher.cs" />
+    <Compile Include="Minions\Physics\FrankenScientistMinion_Baked.cs" />
+    <Compile Include="Minions\Physics\FrankenScientistMinion_OnFire.cs" />
+    <Compile Include="Minions\Physics\ScrapGolemMinion.cs" />
+    <Compile Include="Minions\Physics\FrankenScientistMinion.cs" />
+    <Compile Include="Minions\Physics\PhysicsStudentMinion_Enraged.cs" />
+    <Compile Include="Minions\Physics\PhysicsStudentMinion_Successful.cs" />
+    <Compile Include="Minions\Physics\PhysicsMScStudentMinion.cs" />
+    <Compile Include="Minions\Physics\PhysicsStudentMinion.cs" />
+    <Compile Include="Minions\Physics\QuantumSoldierMinion.cs" />
+    <Compile Include="Minions\Physics\RetentiveTankMinion.cs" />
+    <Compile Include="Minions\Physics\RoboHookMinion.cs" />
+    <Compile Include="Missiles\Biology\ContagiousMissile.cs" />
+    <Compile Include="Missiles\Biology\Contagious_effectiveMissile.cs" />
+    <Compile Include="Missiles\Biology\Contagious_extraMissile.cs" />
+    <Compile Include="Missiles\Biology\OneToAllMissile.cs" />
+    <Compile Include="Missiles\Biology\OneToAll_strongMissile.cs" />
+    <Compile Include="Paths\LinearPath.cs" />
+    <Compile Include="Towers\Biology\ContagiousTower_effective.cs" />
+    <Compile Include="Towers\Biology\ContagiousTower_extra.cs" />
+    <Compile Include="Towers\Biology\DroseraTower.cs" />
+    <Compile Include="Towers\Biology\DroseraTower_crazy.cs" />
+    <Compile Include="Towers\Biology\DroseraTower_hungry.cs" />
+    <Compile Include="Towers\Biology\DroseraTower_insane.cs" />
+    <Compile Include="Towers\Biology\DroseraTower_starving.cs" />
+    <Compile Include="Towers\Biology\OneToAllTower_strong.cs" />
+    <Compile Include="Missiles\Biology\OneToAll_toxicMissile.cs" />
+    <Compile Include="Missiles\Biology\SeedTowerMissile.cs" />
+    <Compile Include="Missiles\Biology\SeedTowerPlantMissile.cs" />
+    <Compile Include="Missiles\Chemistry\AcidMissile.cs" />
+    <Compile Include="Missiles\Chemistry\NitrogenBombMissile.cs" />
+    <Compile Include="Missiles\Chemistry\PetrolBombMissile.cs" />
+    <Compile Include="Missiles\Chemistry\TrypanophobiaMissile.cs" />
+    <Compile Include="Missiles\Physics\BallistaMissile.cs" />
+    <Compile Include="Missiles\Physics\Ballista_fireBoltMissile.cs" />
+    <Compile Include="Missiles\Physics\Ballista_lavaBoltMissile.cs" />
+    <Compile Include="Missiles\Physics\CatapultMissile.cs" />
+    <Compile Include="Missiles\Physics\ElectricityMissile.cs" />
+    <Compile Include="Missiles\Physics\NailTrapMissile.cs" />
+    <Compile Include="Missiles\Physics\TeslaMissile.cs" />
+    <Compile Include="ScienceTrees\ScienceNodes\Biology\Darwin.cs" />
+    <Compile Include="ScienceTrees\ScienceNodes\Chemistry\Mendeleev.cs" />
+    <Compile Include="Statistics\IStatTracker.cs" />
+    <Compile Include="Statistics\PlayerStats.cs" />
+    <Compile Include="Statistics\StatTracker.cs" />
+    <Compile Include="Strategies\TargetStrategies\ArbitraryMinionTargetStrategy.cs" />
+    <Compile Include="Towers\Biology\ContagiousTower.cs" />
+    <Compile Include="Towers\Biology\OneToAllTower.cs" />
+    <Compile Include="Towers\Biology\OneToAllTower_toxic.cs" />
+    <Compile Include="Towers\Biology\SeedTower_2Target.cs" />
+    <Compile Include="Towers\Biology\SeedTower_7Stack.cs" />
+    <Compile Include="Towers\Biology\SeedTower.cs" />
+    <Compile Include="Towers\Chemistry\AcidTower.cs" />
+    <Compile Include="Towers\Chemistry\NitrogenBombTower.cs" />
+    <Compile Include="Towers\Chemistry\PetrolBombTower.cs" />
+    <Compile Include="Towers\Chemistry\RadiationTower.cs" />
+    <Compile Include="Towers\Chemistry\TrypanophobiaTower_Monstrous.cs" />
+    <Compile Include="Towers\Chemistry\TrypanophobiaTower_Scary.cs" />
+    <Compile Include="Towers\Chemistry\TrypanophobiaTower_Faster.cs" />
+    <Compile Include="Towers\Chemistry\TrypanophobiaTower.cs" />
+    <Compile Include="Towers\Physics\BallistaTower_fireBolt.cs" />
+    <Compile Include="Towers\Physics\BallistaTower_lavaBolt.cs" />
+    <Compile Include="Towers\Physics\LaserTower_Quintuplet.cs" />
+    <Compile Include="Towers\Physics\LaserTower_Quadruplet.cs" />
+    <Compile Include="Towers\Physics\LaserTower_Triplet.cs" />
+    <Compile Include="Towers\Physics\LaserTower_Twin.cs" />
+    <Compile Include="Towers\Physics\LaserTower.cs" />
+    <Compile Include="Towers\Physics\ElectricityTower.cs" />
+    <Compile Include="Paths\BezierPath.cs" />
+    <Compile Include="Queues\BasicPlayerQueue.cs" />
+    <Compile Include="Queues\IPlayerQueue.cs" />
+    <Compile Include="Messages\IncomingMessages\IIncomingMessage.cs" />
+    <Compile Include="Messages\IMessage.cs" />
+    <Compile Include="Messages\OutgoingMessages\IOutgoingMessage.cs" />
+    <Compile Include="Missiles\Missile.cs" />
+    <Compile Include="Paths\IPath.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceManager\IRequiresResource.cs" />
+    <Compile Include="ResourceManager\ResourceLoader.cs" />
+    <Compile Include="Runner.cs" />
+    <Compile Include="ScienceTrees\BiologyTree.cs" />
+    <Compile Include="ScienceTrees\ChemistryTree.cs" />
+    <Compile Include="ScienceTrees\PhysicsTree.cs" />
+    <Compile Include="ScienceTrees\ScienceNodes\Physics\Gauss.cs" />
+    <Compile Include="ScienceTrees\ScienceNodes\Physics\Newton.cs" />
+    <Compile Include="ScienceTrees\ScienceNodes\ScienceNode.cs" />
+    <Compile Include="Sessions\Session.cs" />
+    <Compile Include="Minions\Minion.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skills\Skill.cs" />
+    <Compile Include="Strategies\TargetStrategies\FarthestMinionTargetStrategy.cs" />
+    <Compile Include="Strategies\TargetStrategies\ITargetStrategy.cs" />
+    <Compile Include="Strategies\TargetStrategies\MaxHealthTargetStrategy.cs" />
+    <Compile Include="Strategies\TargetStrategies\MinHealthTargetStrategy.cs" />
+    <Compile Include="Strategies\TargetStrategies\NearestMinionTargetStrategy.cs" />
+    <Compile Include="Towers\BiologyTower.cs" />
+    <Compile Include="Towers\ChemistryTower.cs" />
+    <Compile Include="Towers\PhysicsTower.cs" />
+    <Compile Include="Towers\Physics\BallistaTower.cs" />
+    <Compile Include="Towers\Physics\CatapultTower.cs" />
+    <Compile Include="Towers\Physics\BlackHoleTower.cs" />
+    <Compile Include="Towers\Physics\NailTrapTower.cs" />
+    <Compile Include="Towers\Physics\NailTrapTower_MoreRange.cs" />
+    <Compile Include="Towers\Physics\NailTrapTower_MoreSlow.cs" />
+    <Compile Include="Towers\Physics\TeslaTower.cs" />
+    <Compile Include="Towers\Tower.cs" />
+    <Compile Include="GameUtilities\TypeIdGenerator.cs" />
+    <Compile Include="Towers\TowerNode.cs" />
+    <Compile Include="Towers\TowerStats.cs" />
+    <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Messages\IncomingMessages\Login\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

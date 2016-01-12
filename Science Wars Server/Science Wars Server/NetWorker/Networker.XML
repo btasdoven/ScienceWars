@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Networker</name>
+    </assembly>
+    <members>
+        <member name="T:NetWorker.EventArgs.MessageArrivedEventArgs">
+            <summary>
+            Mesaj gelmesi durumunda uyandirilacak olan event'in argumanidir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.EventArgs.MessageArrivedEventArgs.#ctor(NetWorker.Host.Client,NetWorker.Utilities.RawMessage)">
+            <summary>
+            MessageArriveEventArgs icin constructor. Guest kullaniminda sender her zaman null gelir.
+            </summary>
+            <param name="sender">Guest icin kullanildiginda her zaman null dir. Host yaziliminda kullanildiginda mesaji gonderen Client i verir.</param>
+            <param name="message">Alinan mesajin kendisi.</param>
+        </member>
+        <member name="P:NetWorker.EventArgs.MessageArrivedEventArgs.message">
+            <summary>
+            Alinan mesajin RawMessage nesnesi.
+            </summary>
+        </member>
+        <member name="P:NetWorker.EventArgs.MessageArrivedEventArgs.sender">
+            <summary>
+            Mesaji gonderen Client. Sunucudan gelen mesajlar icin sender her zaman null olacaktir.
+            </summary>
+        </member>
+        <member name="T:NetWorker.Guest.Server">
+            <summary>
+            This class is used to create a TCP connection to a known host.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Guest.Server.#ctor">
+            <summary>
+            Creates a Server object.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Guest.Server.Connect(System.String,System.Int32)">
+            <summary>
+            Attempts to connect to the server.
+            </summary>
+            <param name="ip">ip of the server</param>
+            <param name="port">port number of the server</param>
+        </member>
+        <member name="M:NetWorker.Guest.Server.MessageListener">
+            <summary>
+            Sunucudan gelen mesajlari dinler. RawMessage olusturmaya yetecek miktarda byte okuduktan sonra
+            messageArrivedEvent eventini uyarir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Guest.Server.Disconnect">
+            <summary>
+            Servera olan baglantiyi keser.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Guest.Server.SendMessage(NetWorker.Utilities.RawMessage)">
+            <summary>
+            Server'a mesaj gondermek icin kullanilir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Guest.Server.Invoke_ConnectionLost">
+            <summary>
+            connectionLostEvent e bagli olan metodu cagirir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Guest.Server.Invoke_MessageArrived(NetWorker.Utilities.RawMessage)">
+            <summary>
+            messageArrivedEvent e bagli olan metodu cagirir.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="E:NetWorker.Guest.Server.connectionLostEvent">
+            <summary>
+            The event that will be triggered when connection to server is lost.
+            </summary>
+        </member>
+        <member name="E:NetWorker.Guest.Server.messageArrivedEvent">
+            <summary>
+            The event that will be triggered when a message arrives from the server.
+            </summary>
+        </member>
+        <member name="T:NetWorker.Host.ClientEventArgs">
+            <summary>
+            Client connect/disconnect durumlarinda kullanilan EventArgs classi.
+            </summary>
+        </member>
+        <member name="T:NetWorker.Host.Client">
+            <summary>
+            Socket iletisiminde kullanilacak client sinifidir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Host.Client.#ctor(System.Net.Sockets.Socket,NetWorker.Host.Server)">
+            <summary>
+            Verilen socket ve server i iceren client olusturur.
+            Bu clienttan gelen mesajlari dinler.
+            </summary>
+            <param name="socket">Client in baglantisini saglayan TcpClient</param>
+            <param name="server">Bu Client in baglantisinin kopmasi durumunda bilgilendirilecek Server</param>
+        </member>
+        <member name="M:NetWorker.Host.Client.MessageListener(System.Object)">
+            <summary>
+            Bu client tarafindan gonderilmis mesajlari dinler. RawMessage olusturmaya yetecek miktarda byte okuduktan sonra
+            messageArrivedEvent eventini uyarir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Host.Client.SendMessage(NetWorker.Utilities.RawMessage)">
+            <summary>
+            Client'a mesaj gondermek icin kullanilir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Host.Client.Disconnect">
+            <summary>
+            Client'in baglantisini keser.
+            Server da bulunan clientRemovedEvent ini uyarir.
+            </summary>
+        </member>
+        <member name="P:NetWorker.Host.Client.id">
+            <summary>
+            Client a ait unique id.
+            </summary>
+        </member>
+        <member name="T:NetWorker.Host.Server">
+            <summary>
+            Socket iletisiminde kullanilacak socket sinifidir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Host.Server.#ctor">
+            <summary>
+            Bos bir socket nesnesi olusturur.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Host.Server.StartServer(System.String,System.Int32)">
+            <summary>
+            Verilen ip ve port degerlerini kullanarak aga baglanir.
+            Gelen baglanti isteklerini dinler.
+            </summary>
+            <param name="ip">Baglanilacak Ip</param>
+            <param name="port">Port</param>
+            <returns></returns>        
+        </member>
+        <member name="M:NetWorker.Host.Server.Disconnect">
+            <summary>
+            Server i tamamen durdurur.
+            Butun fonksiyonlari kapatir.
+            </summary>
+            <remarks>Bu fonksiyonu cagirdiktan sonra baglantisi kopan clientlar icin clientRemoved eventlerini alamayabilirsiniz.</remarks>
+        </member>
+        <member name="M:NetWorker.Host.Server.Invoke_ClientArrived(NetWorker.Host.Client)">
+            <summary>
+            clientArrivedEvent e bagli olan metodu cagirir.
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="M:NetWorker.Host.Server.Invoke_ClientRemoved(NetWorker.Host.Client)">
+            <summary>
+            clientRemovedEvent e bagli olan metodu cagirir.
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="M:NetWorker.Host.Server.Invoke_MessageArrived(NetWorker.Host.Client,NetWorker.Utilities.RawMessage)">
+            <summary>
+            messageArrivedEvent e bagli olan metodu cagirir.
+            </summary>
+            <param name="client"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:NetWorker.Host.Server.GetNumberOfConnectedClients">
+            <summary>
+            o anda bagli olan client sayisini verir.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:NetWorker.Host.Server.clientArrivedEvent">
+            <summary>
+            Bir client in sunucuya baglanmasi durumunda tetiklenecek olan event.
+            </summary>
+        </member>
+        <member name="E:NetWorker.Host.Server.clientRemovedEvent">
+            <summary>
+            Bir client baglantisinin kopmasi durumunda tetiklenecek olan event.
+            </summary>
+        </member>
+        <member name="E:NetWorker.Host.Server.messageArrivedEvent">
+            <summary>
+            Ag uzerinden bir mesaj geldigi zaman bu event tetiklenir.
+            Bu event mesaji RawMessage olarak eventHandler metodunun ilk parametresine gonderir.
+            Ikinci parametre her zaman null'dir. 
+            
+            Not:Mesajlari eventHandler metodunda islemeniz onerilmez. Cunku bu metodun calismasi sirasinda ag uzerinden veri okuma islemi durur.
+            Mumkun oldugu surece bu metodunuzu sadece mesaji uygun yere gondermek icin kullanin. Mesaji islemek icin baska bir thread i gorevlendirin.
+            </summary>
+        </member>
+        <member name="T:NetWorker.Utilities.RawMessage">
+            <summary>
+            Ag uzerinden alinan veri paketini ifade eden siniftir.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Utilities.RawMessage.#ctor">
+            <summary>
+            Gonderilmeye hazir veri olusturmak icin bir RawMessage nesnesi olusturur.
+            </summary>
+        </member>
+        <member name="M:NetWorker.Utilities.RawMessage.#ctor(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Yeni raw message olusturmak icin kullanilir. 
+            </summary>
+            <param name="buffer">Mesaji olusturan byte arrayi</param>
+            <param name="startOffset">Ilk parametredeki buffer in kacinci byte tan itibaren kullanilacagini tutar.</param>
+            <param name="length">Length byte arrayinin icinden okunacak byte sayisini gosterir.</param>
+        </member>
+        <member name="M:NetWorker.Utilities.RawMessage.ToString">
+            <summary>
+            Mesaji UTF-8 string olarak verir.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NetWorker.Utilities.RawMessage.putRawMessage(System.String,NetWorker.Utilities.RawMessage)">
+            <summary>
+            Bir mesajin icerisine baska bir mesaj koymanizi saglar.
+            </summary>
+            <param name="key"></param>
+            <param name="message"></param>
+        </member>
+        <member name="P:NetWorker.Utilities.RawMessage.bytes">
+            <summary>
+            Bu mesajin icerdigi veriyi, byte arrayi olarak dondurur.
+            </summary>
+        </member>
+    </members>
+</doc>

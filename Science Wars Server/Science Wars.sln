@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Science Wars Server", "Science Wars Server\Science Wars Server.csproj", "{2997D6BD-A86F-4253-8F0D-FB95FA7253F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationServer", "ApplicationServer\ApplicationServer.csproj", "{8493A532-FB93-4A6F-824F-3FBFCE9AE955}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2997D6BD-A86F-4253-8F0D-FB95FA7253F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2997D6BD-A86F-4253-8F0D-FB95FA7253F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2997D6BD-A86F-4253-8F0D-FB95FA7253F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2997D6BD-A86F-4253-8F0D-FB95FA7253F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8493A532-FB93-4A6F-824F-3FBFCE9AE955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8493A532-FB93-4A6F-824F-3FBFCE9AE955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8493A532-FB93-4A6F-824F-3FBFCE9AE955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8493A532-FB93-4A6F-824F-3FBFCE9AE955}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

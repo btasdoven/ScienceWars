@@ -1,0 +1,15 @@
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\Assembly-CSharp.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\Assembly-CSharp.pdb
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\Assembly-UnityScript-firstpass.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\Networker.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\UnityEditor.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\UnityEngine.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\Mono.Cecil.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\nunit.framework.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\Unity.DataContract.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\Temp\bin\Debug\Networker.xml
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\obj\Debug\Assembly-CSharp.dll
+D:\Batuhan\Çalışmalar\ODTÜ\CENG491 - INTRODUCTION TO PROJECT DESIGN I\project\leskoding\Science Wars Client\obj\Debug\Assembly-CSharp.pdb
